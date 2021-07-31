@@ -1,28 +1,33 @@
 # Ticketera
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+## Importacion y exportacion de colleciones a Cloud Atlas
 
-## Development server
+### Exportacion:
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=areas --out=areas.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=auths --out=auths.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=historial_tickets --out=historial_tickets.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=localidades --out=localidades.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=planes --out=planes.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=canales --out=canales.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=solucion_ticket --out=solucion_ticket.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=servicios --out=servicios.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=tickets --out=tickets.json
+ - mongoexport --uri="mongodb://localhost:27017/Ticketera" --collection=usuarios --out=usuarios.json
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# tpTicketera
+### Importacion: 
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=areas --file=areas.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=auths --file=auths.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=historial_tickets --file=historial_tickets.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=localidades --file=localidades.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=planes --file=planes.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=canales --file=canales.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=solucion_ticket --file=solucion_ticket.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=servicios --file=servicios.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=tickets --file=tickets.json
+ - mongoexport --uri="mongodb+srv://sebastian_rilo:<password>@primercluster.utc0y.mongodb.net/Ticketera" --collection=usuarios --file=usuarios.json
+  
+  ----------------------------------------------
+  ## Usuario con acceso a solo lectura en la DB Ticketera:
+  - username: octavio_villegas
+  - password: octavio1234
+  

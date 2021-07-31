@@ -1,0 +1,40 @@
+<div class="container-fluid d-flex flex-column" style="height: 100%; background-color: darkmagenta;">
+    <div class="row h-100">
+        <nav class='col-lg-4 bg-light sidebar overflow-auto p-1'>
+            <h5 class="mt-2 text-center">Acciones de inspeccion</h5>
+            <div class="sidebar-sticky">
+                <div class="col-12 form-floating mb-3 p-2">
+                    <div class="col-12 form-floating mb-3">
+                        <select class="form-select" id="areaSelect" aria-label="Floating label select example">
+                            <option value="servicio">Area 1</option>
+                            <option value="servicio">Area 2</option>
+                            <option value="servicio">Area 3</option>
+                        </select>
+                        <label for="areaSelect">Redirigir a area</label>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <label>Solucion pendiente:</label>
+                        <p>Solucion Actualmente pendiente</p>
+                        <div class="d-flex justify-content-around mb-3">
+                            <button class="btn btn-success">Implementar Solucion</button>
+                            <button class="btn btn-danger">Desechar Solucion</button>
+                        </div>
+                        <div class="col-12 form-floating mb-3">
+                            <input disabled id='solucionInput' type="text" class="form-control">
+                            <label for="solucionInput">Ofrecer nueva solucion</label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success">Guardar Cambios</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-8 d-flex justify-content-center">
+            <detalle-ticket></detalle-ticket>
+        </div>
+    </div>
+
+</div>

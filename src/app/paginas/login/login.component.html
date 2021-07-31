@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center align-items-center"
+    style="height: 100%; background-color: darkcyan;">
+        <form class="bg-light rounded p-2 col-10 text-center">
+            <div class="col-auto form-floating m-3">
+                <select [ngModel]="user" name="user" class="form-select" id="servicioSelect" aria-label="Floating label select example" (ngModelChange)='seleccionarUsuario($event)'>
+                        <option *ngFor='let auth of listaAuths' [ngValue]="auth">{{auth.nombre}} {{auth.apellido}} -- {{auth.tipo}}</option>
+                </select>
+                <label for="servicioSelect">Elegir usuarios</label>
+            </div>
+            <button class="btn btn-primary" type="submit" (click)='login()' >Iniciar Sesion</button>
+        </form>
+</div>

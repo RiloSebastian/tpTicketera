@@ -1,0 +1,154 @@
+<div class="container-fluid d-flex flex-column" style="height: 100%">
+    <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes"
+                type="button" role="tab" aria-controls="clientes" aria-selected="true" (click)='arrayData = null'>
+                Control de Clientes
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="zonas-tab" data-bs-toggle="tab" data-bs-target="#zonas" type="button"
+                role="tab" aria-controls="zonas" aria-selected="true" (click)='arrayData = null'>
+                Control de Zonas
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="atencion-tab" data-bs-toggle="tab" data-bs-target="#atencion" type="button"
+                role="tab" aria-controls="atencion" aria-selected="true" (click)='arrayData = null'>
+                Control de Atencion
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="problemas-tab" data-bs-toggle="tab" data-bs-target="#problemas" type="button"
+                role="tab" aria-controls="problemas" aria-selected="true" (click)='arrayData = null'>
+                Control de Problemas
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content h-100" id="myTabContent">
+        <div class="tab-pane fade show active h-100" id="clientes" role="tabpanel" aria-labelledby="clientes-tab">
+            <div class="row h-100">
+                <nav class='col-lg-3 sidebar overflow-auto p-1'>
+                    <h5 class="mt-2 text-center">Informes</h5>
+                    <div class="sidebar-sticky">
+                        <div class="list-group p-1 lateral" role="tablist">
+                            <a class="list-group-item list-group-item-action" data-toggle="tab" id="mas-tickets-list"
+                                role="tab" (click)="obtenerData('clienteMasTickets')">Cliente con mas Tickets</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="tickets-sin-resolver-list" role="tab"
+                                (click)="obtenerData('clientesTicketsSinResolver')">Clientes con tickets sin
+                                resolver</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="mas-clientes-por-zona-list" role="tab"
+                                (click)="obtenerData('masClientesPorZona')">Mas clientes por zona</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="clientes-empleados-list" role="tab"
+                                (click)="obtenerData('clientesEmpleadosConTickets')">Clientes que son empleados con
+                                tickets</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-md-9 bg-secondary d-flex flex-column justify-content-center align-items-center">
+                    <div *ngIf='arrayData !== null'>
+                        <div class="card bg-dark">
+                            <div class="card-body" class="lateral" style="height: 35rem; width: 60rem; padding: 15px;">
+                                <h5 class="card-title">Resultados:</h5>
+                                <pre class="text-success">{{arrayData}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade h-100" id="zonas" role="tabpanel" aria-labelledby="zonas-tab">
+            <div class="row h-100">
+                <nav class='col-lg-3 sidebar overflow-auto p-1'>
+                    <h5 class="mt-2 text-center">Informes</h5>
+                    <div class="sidebar-sticky">
+                        <div class="list-group p-1 lateral" role="tablist">
+                            <a class="list-group-item list-group-item-action" data-toggle="tab" id="atencion-zona-list"
+                                role="tab" (click)="obtenerData('atencionPorZona')">Atencion por zona</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="desperfectos-zona-list" role="tab"
+                                (click)="obtenerData('desperfectoPorZona')">Desperfectos por zona</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="desperfectos-zona-list" role="tab"
+                                (click)="obtenerData('cincoUsuariosMasCercanos')">Cinco usuarios mas cercanos a posicion
+                                actual</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-md-9 bg-secondary d-flex flex-column justify-content-center align-items-center">
+                    <div *ngIf='arrayData !== null'>
+                        <div class="card bg-dark">
+                            <div class="card-body" class="lateral" style="height: 35rem; width: 60rem; padding: 15px;">
+                                <h5 class="card-title">Resultados:</h5>
+                                <pre class="text-success">{{arrayData}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade h-100" id="atencion" role="tabpanel" aria-labelledby="atencion-tab">
+            <div class="row h-100">
+                <nav class='col-lg-3 sidebar overflow-auto p-1'>
+                    <h5 class="mt-2 text-center">Informes</h5>
+                    <div class="sidebar-sticky">
+                        <div class="list-group p-1 lateral" role="tablist">
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="personal-mas-trabajador-list" role="tab"
+                                (click)="obtenerData('personalMasTrabaja')">Personal que mas trabaja</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="horario-mas-trabajo-list" role="tab"
+                                (click)="obtenerData('horarioMasTrabajo')">Horario con mas trabajo
+                            </a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="personal-tickets-sin-resolver-list" role="tab"
+                                (click)="obtenerData('personalTicketsSinResolver')">Todos los tickets sin resolver</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-md-9 bg-secondary d-flex flex-column justify-content-center align-items-center">
+                    <div *ngIf='arrayData !== null'>
+                        <div class="card bg-dark">
+                            <div class="card-body" class="lateral" style="height: 35rem; width: 60rem; padding: 15px;">
+                                <h5 class="card-title">Resultados:</h5>
+                                <pre class="text-success">{{arrayData}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade h-100" id="problemas" role="tabpanel" aria-labelledby="problemas-tab">
+            <div class="row h-100">
+                <nav class='col-lg-3 sidebar overflow-auto p-1'>
+                    <h5 class="mt-2 text-center">Informes</h5>
+                    <div class="sidebar-sticky">
+                        <div class="list-group p-1 lateral" role="tablist">
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="tiempo-desperfecto-list" role="tab"
+                                (click)="obtenerData('desperfectoPorFecha')">Horarios en que ocurre
+                                un desperfecto</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="tab"
+                                id="recurrencia-desperfecto-list" role="tab"
+                                (click)="obtenerData('desperfectoRecurrencia')">Recurrencia de
+                                Desperfecto</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="col-md-9 bg-secondary d-flex flex-column justify-content-center align-items-center">
+                    <div *ngIf='arrayData !== null'>
+                        <div class="card bg-dark">
+                            <div class="card-body" class="lateral" style="height: 35rem; width: 60rem; padding: 15px;">
+                                <h5 class="card-title">Resultados:</h5>
+                                <pre class="text-success">{{arrayData}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

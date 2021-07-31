@@ -1,0 +1,30 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center"
+  style="height: 100%; background-color: darkcyan;">
+  <div class="bg-light rounded shadow p-4 text-center row">
+    <h1 class="text-uppercase mb-3">Crear Ticket</h1>
+    <form role="form">
+      <div class="col-12 form-floating mb-3">
+        <select [(ngModel)]='servicioSelect' name='servicio' class="form-select" id="servicioSelect" (ngModelChange)='seleccionarServicio($event)'>
+          <option *ngFor='let serv of servicios' [ngValue]="serv">{{serv.localidad.descripcion}}. Pack: {{serv.plan.nombre}} -- {{serv.fecha_alta | date:'medium'}}</option>
+        </select>
+        <label for="servicioSelect">Servicio</label>
+      </div>
+      <div class="col-12 form-floating mb-3">
+        <select [(ngModel)]='tipoSelect' name='tipo' class="form-select" id="tipoTicket" (ngModelChange)='seleccionarTipo($event)'>
+          <option [value]="tipoTicket.desperfecto">Desperfecto</option>
+          <option [value]="tipoTicket.cambio_de_plan">Cambio de Plan</option>
+          <option [value]="tipoTicket.dar_de_baja">Dar de Baja</option>
+          <option [value]="tipoTicket.dar_de_alta">Dar de Alta</option>
+        </select>
+        <label for="tipoTicket">Elegir el tipo de consulta</label>
+      </div>
+      <div class="col-12 form-floating mb-3">
+        <textarea [(ngModel)]='inpDescripcion' name='descripcion' class="form-control" id="descripcionInput" placeholder="name@example.com" style="height: 100px"></textarea>
+          <label for="descripcionInput">Descripcion</label>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-success mb-3" (click)='generarTicket()'>Generar</button>
+      </div>
+    </form>
+  </div>
+</div>
